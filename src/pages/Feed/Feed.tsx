@@ -1,6 +1,7 @@
 import { usePosts } from '../../hooks/usePosts';
 import PostCard from '../../components/PostCard/PostCard';
 import styles from './Feed.module.css';
+import PostForm from '../../components/PostForm/PostForm';
 
 function Feed() {
     const { data, isLoading, error } = usePosts(1);
@@ -27,7 +28,7 @@ function Feed() {
             </div>
 
             <PostForm />
-            
+
             <div className={styles.posts}>
                 {data?.posts.map(post => (
                     <PostCard key={post.id} post={post} />
