@@ -1,0 +1,42 @@
+.app {
+  min-height: 100vh;
+  background: #f0f2f5;
+}
+
+.header {
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 12px 20px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1877f2;
+  margin: 0;
+}
+
+.main {
+  padding: 20px 0;
+}
+
+body.dark .app {
+  background: #18191a;
+}
+
+body.dark .header {
+  background: #242526;
+  border-bottom: 1px solid #3a3b3c;
+}
+
+body.dark .logo {
+  color: #2d88ff;
+}
