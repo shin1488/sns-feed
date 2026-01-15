@@ -1,4 +1,5 @@
 import type { Post } from "../../types";
+import LikeButton from "../LikeButton/LikeButton";
 import styles from "./PostCard.module.css";
 
 interface PostCardProps {
@@ -13,6 +14,9 @@ function PostCard({ post }: PostCardProps) {
     if (seconds < 86400) return `${Math.floor(seconds / 3600)}시간 전`;
     return `${Math.floor(seconds / 86400)}일 전`;
   };
+
+  const currentUserId = 1;
+  const isLiked = post.likedBy.includes(currentUserId);
 
   return (
     <article className={styles.card}>
@@ -35,7 +39,11 @@ function PostCard({ post }: PostCardProps) {
       )}
 
       <div className={styles.footer}>
-        <button className={styles.actionBtn}>♥️ {post.likes}</button>
+        <LikeButton
+          postId={post.id}
+          likes={post.likes}
+          isLiked={isLiked}
+        />
         <button className={styles.actionBtn}>💬 {post.commentCount}</button>
       </div>
     </article>
