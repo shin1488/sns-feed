@@ -3,20 +3,27 @@ import { useCreatePost } from '../../hooks/useCreatePost';
 import styles from './PostForm.module.css';
 interface PostFormData {
     content: string;
+    image?: string;
 }
+
 function PostForm() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm<PostFormData>();
     const createPostMutation = useCreatePost();
+
     const onSubmit = (data: PostFormData) => {
         createPostMutation.mutate(
             { content: data.content },
             {
                 onSuccess: () => {
                     reset();
+                },
+                onError: (error) => {
+                    alert(`게시 실패: ${error.message}`);
                 }
             }
         );
     };
+
     return (
         <div className={styles.formContainer}>
             <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
@@ -35,6 +42,12 @@ function PostForm() {
                     placeholder="무슨 생각을 하고 계신가요?"
                     className={styles.textarea}
                     rows={3}
+                />
+                <input
+                    {...register('image')}
+                    type="text"
+                    placeholder="이미지 URL (선택)"
+                    className={styles.imageInput}
                 />
                 {errors.content && (
                     <p className={styles.error}>{errors.content.message}</p>

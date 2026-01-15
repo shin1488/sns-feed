@@ -1,5 +1,6 @@
 import type { Post } from "../../types";
 import CommentSection from "../CommentSection/CommentSection";
+import LikeButton from "../LikeButton/LikeButton";
 import styles from "./PostCard.module.css";
 import LikeButton from "../LikeButton/LikeButton";
 
@@ -41,9 +42,12 @@ function PostCard({ post }: PostCardProps) {
       )}
 
       <div className={styles.footer}>
-        <LikeButton postId={post.id} likes={post.likes} isLiked={isLiked} />
-        {/* <button className={styles.actionBtn}>♥️ {post.likes}</button> */}
-        {/* <button className={styles.actionBtn}>💬 {post.commentCount}</button> */}
+        <LikeButton
+          postId={post.id}
+          likes={post.likes}
+          isLiked={isLiked}
+        />
+        <button className={styles.actionBtn}>💬 {post.commentCount}</button>
       </div>
       <CommentSection postId={post.id} />
     </article>
