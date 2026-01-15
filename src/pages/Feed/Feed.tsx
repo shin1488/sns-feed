@@ -1,10 +1,11 @@
 import { usePosts } from "../../hooks/usePosts";
 import PostCard from "../../components/PostCard/PostCard";
-import styles from "./Feed.module.css";
 import PostForm from "../../components/PostForm/PostForm";
+import styles from "./Feed.module.css";
 
 function Feed() {
   const { data, isLoading, error } = usePosts(1);
+
   if (isLoading) {
     return (
       <div className={styles.loading}>
@@ -13,6 +14,7 @@ function Feed() {
       </div>
     );
   }
+
   if (error) {
     return (
       <div className={styles.error}>
@@ -21,6 +23,7 @@ function Feed() {
       </div>
     );
   }
+
   return (
     <div className={styles.feed}>
       <div className={styles.header}>
@@ -37,4 +40,5 @@ function Feed() {
     </div>
   );
 }
+
 export default Feed;

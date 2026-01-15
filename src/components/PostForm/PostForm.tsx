@@ -13,6 +13,9 @@ function PostForm() {
             {
                 onSuccess: () => {
                     reset();
+                },
+                onError: (error) => {
+                    alert(`게시 실패: ${error.message}`);
                 }
             }
         );
