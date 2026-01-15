@@ -1,5 +1,3 @@
-import type { Post } from "../types";
-
 export async function fetchPosts(page: number = 1, limit: number = 5) {
   const response = await fetch(`/api/posts?page=${page}&limit=${limit}`);
 
