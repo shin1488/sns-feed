@@ -1,9 +1,9 @@
 import { usePosts } from "../../hooks/usePosts";
 import PostCard from "../../components/PostCard/PostCard";
-import styles from "./Feed.module.css";
 import PostForm from "../../components/PostForm/PostForm";
 import { useEffect, useRef } from "react";
 import type { Post } from "../../types";
+import styles from "./Feed.module.css";
 
 function Feed() {
   const {
@@ -44,6 +44,7 @@ function Feed() {
       </div>
     );
   }
+
   if (error) {
     return (
       <div className={styles.error}>
@@ -52,6 +53,7 @@ function Feed() {
       </div>
     );
   }
+
   return (
     <div className={styles.feed}>
       <div className={styles.header}>
@@ -90,4 +92,6 @@ function Feed() {
     </div>
   );
 }
+
+
 export default Feed;
