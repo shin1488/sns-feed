@@ -1,6 +1,8 @@
 import type { Post } from "../../types";
+import CommentSection from "../CommentSection/CommentSection";
 import LikeButton from "../LikeButton/LikeButton";
 import styles from "./PostCard.module.css";
+import LikeButton from "../LikeButton/LikeButton";
 
 interface PostCardProps {
   post: Post;
@@ -8,6 +10,7 @@ interface PostCardProps {
 
 function PostCard({ post }: PostCardProps) {
   const timeAgo = (date: string) => {
+    // eslint-disable-next-line react-hooks/purity
     const seconds = Math.floor((Date.now() - new Date(date).getTime()) / 1000);
     if (seconds < 60) return `${seconds}초 전`;
     if (seconds < 3600) return `${Math.floor(seconds / 60)}분 전`;
@@ -46,6 +49,7 @@ function PostCard({ post }: PostCardProps) {
         />
         <button className={styles.actionBtn}>💬 {post.commentCount}</button>
       </div>
+      <CommentSection postId={post.id} />
     </article>
   );
 }
