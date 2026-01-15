@@ -32,3 +32,9 @@ export interface CreateCommentInput {
     postId: number;
     content: string;
 }
+
+export interface GetPostPage {
+  posts: Post[];
+  hasMore: number;
+  nextPage: number;
+}

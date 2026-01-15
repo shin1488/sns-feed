@@ -7,12 +7,6 @@ import type {
   CreateCommentInput,
 } from "../types";
 
-export interface GetPostPage {
-  posts: Post[];
-  hasMore: number;
-  nextPage: number;
-}
-
 export const handlers = [
   // 포스트 목록 (페이지네이션)
   http.get("/api/posts", async ({ request }) => {

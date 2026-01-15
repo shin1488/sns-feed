@@ -1,5 +1,4 @@
 import type { Post } from "../../types";
-
 import styles from "./PostCard.module.css";
 
 interface PostCardProps {
