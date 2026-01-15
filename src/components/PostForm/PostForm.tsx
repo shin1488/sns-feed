@@ -12,7 +12,9 @@ function PostForm() {
 
     const onSubmit = (data: PostFormData) => {
         createPostMutation.mutate(
-            { content: data.content },
+            { content: data.content,
+                image: data.image
+            },
             {
                 onSuccess: () => {
                     reset();
