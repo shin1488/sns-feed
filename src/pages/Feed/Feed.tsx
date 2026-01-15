@@ -25,6 +25,9 @@ function Feed() {
             <div className={styles.header}>
                 <h1>피드</h1>
             </div>
+
+            <PostForm />
+            
             <div className={styles.posts}>
                 {data?.posts.map(post => (
                     <PostCard key={post.id} post={post} />

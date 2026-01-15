@@ -5,7 +5,7 @@ interface PostFormData {
     content: string;
 }
 function PostForm() {
-    const { register, handleSubmit, formState: { errors }, reset } = useForm < PostFormData > ();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<PostFormData>();
     const createPostMutation = useCreatePost();
     const onSubmit = (data: PostFormData) => {
         createPostMutation.mutate(
@@ -48,6 +48,11 @@ function PostForm() {
                         {createPostMutation.isPending ? '게시 중...' : '게시'}
                     </button>
                 </div>
+                {createPostMutation.isError && (
+                    <p className={styles.error}>
+                        게시에 실패했습니다
+                    </p>
+                )}
             </form>
         </div>
     );
